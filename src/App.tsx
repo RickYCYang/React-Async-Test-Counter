@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './Component/Counter';
+import Counter from './Component/Counter';
 import './App.css';
 
 const App = () => {

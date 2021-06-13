@@ -4,11 +4,15 @@ import {
     INCREMENT_AMOUNT
 } from '../Actions/ActionTypes';
 
-const initState: any = {
+interface State {
+    counter: number
+}
+
+const initState: State = {
     counter: 0
 }
 
-const Counter = (state = initState, action: any) => {
+const Counter = (state: State = initState, action: any) => {
     switch (action.type) {
         case INCREMENT: {
             return {...state, counter: state.counter + 1}
@@ -17,7 +21,12 @@ const Counter = (state = initState, action: any) => {
             return {...state, counter: state.counter - 1}
         }
         case INCREMENT_AMOUNT: {
-            return {...state, counter: state.counter + action.payload}
+            if(action.payload){
+                return {...state, counter: state.counter + action.payload}
+            }
+            else {
+                return state;
+            }
         }
         default: {
             return state
